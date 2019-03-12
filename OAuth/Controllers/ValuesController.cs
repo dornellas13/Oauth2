@@ -14,9 +14,9 @@ namespace OAuth.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<object>> Get()
         {
-            return this.User.Claims.Select(a => a.Value).ToList();
+            return this.User.Claims.Select(a => a.ToString()).ToList();
         }
 
         // GET api/values/5
