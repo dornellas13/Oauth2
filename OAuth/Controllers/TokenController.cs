@@ -36,7 +36,7 @@ namespace OAuth.Controllers
             var jwtToken = handler.CreateToken(new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
             {
                 // Claims
-                Subject = GetClaimsIdentity(),
+                Subject = new ClaimsIdentity(),
                 // Issuer (iss): quem emite o token JWT;
                 Issuer = _configuaration.GetSection("JwtSettings:Issuer").Value,
                 /// Audience (aud): aplicações que podem usar o token JWT. 
@@ -44,7 +44,6 @@ namespace OAuth.Controllers
                 // IssuedAt (iat): data e hora em que o token foi emitido;
                 IssuedAt = DateTime.Now,
                 // Expires (exp): data e hora em que o token irá expirar;
-                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = _jwtSettings.SigningCredentials
             });
 
