@@ -1,2 +1,2 @@
 # OAuth2
-Exemplo de autorizador em .Net Core
+Prof of concept with oauth2 in .NET Core
